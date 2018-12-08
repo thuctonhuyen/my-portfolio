@@ -10,8 +10,11 @@
   --main-section-header-border-bottom: 2px solid #95a5a6
 }
 
-html, body {
+
+html, body, main {
   overflow-x: hidden;
+  height: 100%;
+  width: 100%;
 }
 
 body {
@@ -29,6 +32,7 @@ main {
 
 /* start sidebar styles */
 .sidebar {
+  height: 100%;
   width: 30%;
   transition: transform 0.3s ease;
   background-color: var(--nav-background-color);
@@ -60,13 +64,14 @@ main {
 
 /* start main-section styles */
 .main-section {
-  margin: auto 0.5rem;
+  margin: 0 0.5rem;
 }
 .main-section--with-nav {
   width: 70%;
 }
 .main-section__content-paragraph {
   margin: auto 1rem;
+  line-height: 1.8;
 }
 /* end main-section styles */
 
@@ -97,17 +102,28 @@ main {
   margin-top: 1rem;
   transition: transform 0.3s ease;
 }
-.main-section__content-my-experience,
-.main-section__content-my-projects {
-  /* TODO: add vendor prefix */
-  transform: translate(150%, 0);
-}
 
 .main-section__content-banner-image {
   max-width: 100%;
 }
 /* end main-section content styles */
 
+/* start main section content article styles */
+.main-section__content-article {
+  transition: transform 0.3s ease;
+}
+
+.main-section__content-article--active {
+  transform: translate(0, 0);
+  position: relative;
+}
+
+.main-section__content-article--inactive {
+  /* TODO: add vendor prefix */
+  position: absolute;
+  transform: translate(150%, 0);
+}
+/* end main section content article styles */
 
 
 /* start featured-work styles */

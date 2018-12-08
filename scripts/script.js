@@ -10,6 +10,8 @@ var mainSectionSideBarMenuIconClassName = 'main-section__sidebar-menu-icon';
 var mainSectionSideBarMenuIconSelector = '.' + mainSectionSideBarMenuIconClassName;
 var sideBarListItemClassName = 'sidebar__list-item';
 var sideBarListItemSelector = '.' + sideBarListItemClassName;
+var mainSectionContentArticleClassName = 'main-section__content-article';
+var mainSectionContentArticleSelector = '.' + mainSectionContentArticleClassName;
 
 
 $(document).ready(function() {
@@ -48,6 +50,17 @@ $(document).ready(function() {
     $currentActiveListItem = $('.' + getIdentifiderClassName(ACTIVE, sideBarListItemClassName))
     toggleIdentifierClassName($currentActiveListItem, sideBarListItemClassName, [ACTIVE]);
     toggleIdentifierClassName($(this), sideBarListItemClassName, [ACTIVE])
+
+    // bring the right slide:
+    var targetDataAttribute = $(this).attr(dataAttribute);
+    if(targetDataAttribute) {
+      $currentActiveMainSectionContentArticle = $('.' + getIdentifiderClassName(ACTIVE, mainSectionContentArticleClassName))
+      toggleIdentifierClassName($currentActiveMainSectionContentArticle, mainSectionContentArticleClassName, [ACTIVE, INACTIVE]);
+
+      $nextActiveMainSectionContentArticle = $('.' + mainSectionContentArticleClassName + '[' + dataAttribute + '="' + targetDataAttribute + '"]');
+      toggleIdentifierClassName($nextActiveMainSectionContentArticle, mainSectionContentArticleClassName, [ACTIVE, INACTIVE]);
+    }
+
   });
 
 })
