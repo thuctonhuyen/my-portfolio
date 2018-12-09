@@ -28,7 +28,7 @@ $(document).ready(function() {
     }
   };
 
-  $(mainSectionSideBarMenuIconSelector).on('click', function(){
+  $(mainSectionSideBarMenuIconSelector).on('click', function(e){
     var status = $(sideBarSelector).attr(dataAttribute)
     if (status === INACTIVE || status === ACTIVE) {
       /* start handling data for sidebar */
@@ -44,9 +44,11 @@ $(document).ready(function() {
       toggleIdentifierClassName($(mainSectionSideBarMenuIconSelector), mainSectionSideBarMenuIconClassName, [ACTIVE, INACTIVE]);
       /* end handling data for main section sidebar menu icon */
     }
+
+    e.stopPropagation();
   });
 
-  $(sideBarListItemSelector).on('click', function(){
+  $(sideBarListItemSelector).on('click', function(e){
     $currentActiveListItem = $('.' + getIdentifiderClassName(ACTIVE, sideBarListItemClassName))
     toggleIdentifierClassName($currentActiveListItem, sideBarListItemClassName, [ACTIVE]);
     toggleIdentifierClassName($(this), sideBarListItemClassName, [ACTIVE])
@@ -60,6 +62,7 @@ $(document).ready(function() {
       $nextActiveMainSectionContentArticle = $('.' + mainSectionContentArticleClassName + '[' + dataAttribute + '="' + targetDataAttribute + '"]');
       toggleIdentifierClassName($nextActiveMainSectionContentArticle, mainSectionContentArticleClassName, [ACTIVE, INACTIVE]);
     }
+    e.stopPropagation();
 
   });
 
