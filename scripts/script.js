@@ -6,7 +6,7 @@ var sideBarSelector = '.' + sideBarClassName;
 var dataAttribute = 'data-attr';
 var mainSectionClassName = 'main-section';
 var mainSectionSelector = '.' + mainSectionClassName;
-var mainSectionSideBarMenuIconClassName = 'main-section__sidebar-menu-icon';
+var mainSectionSideBarMenuIconClassName = 'header__menu-icon';
 var mainSectionSideBarMenuIconSelector = '.' + mainSectionSideBarMenuIconClassName;
 var sideBarListItemClassName = 'sidebar__list-item';
 var sideBarListItemSelector = '.' + sideBarListItemClassName;
@@ -14,26 +14,26 @@ var mainSectionContentArticleClassName = 'main-section__content-article';
 var mainSectionContentArticleSelector = '.' + mainSectionContentArticleClassName;
 
 
-$(document).ready(function() {
-  var getIdentifiderClassName = function(identierType, className) {
+$(document).ready(function () {
+  var getIdentifiderClassName = function (identierType, className) {
     return identierType ? className + '--' + identierType : '';
   }
 
-  var toggleIdentifierClassName = function($selector, className, identifiers) {
-    if($selector && className && Array.isArray(identifiers) && identifiers.length > 0) {
-      for(index in identifiers) {
+  var toggleIdentifierClassName = function ($selector, className, identifiers) {
+    if ($selector && className && Array.isArray(identifiers) && identifiers.length > 0) {
+      for (index in identifiers) {
         var identifier = identifiers[index]
         identifier && $selector.toggleClass(getIdentifiderClassName(identifier, className));
       }
     }
   };
 
-  $(mainSectionSideBarMenuIconSelector).on('click', function(e){
+  $(mainSectionSideBarMenuIconSelector).on('click', function (e) {
     var status = $(sideBarSelector).attr(dataAttribute)
     if (status === INACTIVE || status === ACTIVE) {
       /* start handling data for sidebar */
       toggleIdentifierClassName($(sideBarSelector), sideBarClassName, [ACTIVE, INACTIVE])
-      status === INACTIVE ?  $(sideBarSelector).attr(dataAttribute, ACTIVE) :  $(sideBarSelector).attr(dataAttribute, INACTIVE)
+      status === INACTIVE ? $(sideBarSelector).attr(dataAttribute, ACTIVE) : $(sideBarSelector).attr(dataAttribute, INACTIVE)
       /* end handling data for sidebar */
 
       /* start handling data for main section */
@@ -48,14 +48,14 @@ $(document).ready(function() {
     e.stopPropagation();
   });
 
-  $(sideBarListItemSelector).on('click', function(e){
+  $(sideBarListItemSelector).on('click', function (e) {
     $currentActiveListItem = $('.' + getIdentifiderClassName(ACTIVE, sideBarListItemClassName))
     toggleIdentifierClassName($currentActiveListItem, sideBarListItemClassName, [ACTIVE]);
     toggleIdentifierClassName($(this), sideBarListItemClassName, [ACTIVE])
 
     // bring the right slide:
     var targetDataAttribute = $(this).attr(dataAttribute);
-    if(targetDataAttribute) {
+    if (targetDataAttribute) {
       $currentActiveMainSectionContentArticle = $('.' + getIdentifiderClassName(ACTIVE, mainSectionContentArticleClassName))
       toggleIdentifierClassName($currentActiveMainSectionContentArticle, mainSectionContentArticleClassName, [ACTIVE, INACTIVE]);
 
