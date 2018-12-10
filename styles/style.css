@@ -69,11 +69,8 @@ body {
 /* end sidebar styles */
 
 /* start main-section styles */
-
-@media screen and (min-width: 640px) {
-}
-
-@media screen and (min-width: 1024px) {
+.main-section {
+  overflow-x: hidden;
 }
 
 .main-section__content-paragraph,
@@ -131,6 +128,10 @@ header {
   padding-right: 1.5rem;
 }
 
+.header__profile-pic-wrapper{
+  align-self: center;
+}
+
 .header__profile-pic-image {
   max-width: 100%;
 }
@@ -169,6 +170,11 @@ header {
   max-width: 100%;
 }
 
+@media screen and (max-width: 1024px) {
+  .main-section__content-featured-work article {
+    margin-bottom: 1.5rem;
+  }
+}
 /* end main-section content styles */
 
 /* start main section content article styles */
