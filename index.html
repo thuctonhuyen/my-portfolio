@@ -35,21 +35,21 @@
 </head>
 
 <body>
-  <main class="container-fulid">
+  <main class="container">
     <header class="row header">
-      <div class="col-4 col-md-2 col-lg-2 offset-lg-3 header__profile-pic-wrapper">
+      <div class="col-4 col-md-2 col-lg-2 header__profile-pic-wrapper">
         <img class="header__profile-pic-image" src="images/profilePic.png" alt="Profile picture">
       </div>
-      <article class="col-8 col-md-10 col-lg-7 header__wrapper">
+      <article class="col-8 col-md-10 col-lg-10 header__wrapper">
         <h1 class="header__title">THUC HUYEN</h1>
         <p class="header__paragraph">Full Stack Developer</p>
-        <!-- <div class="header__menu-icon-wrapper">
-          <i class="fa fa-bars header__menu-icon"></i>
-        </div> -->
+        <div class="header__menu-icon-wrapper">
+          <span class="header__menu-icon header__menu-icon--inactive"></span>
+        </div>
       </article>
     </header>
     <section class="row main-section">
-      <div class="col-5 col-md-3 sidebar sidebar-active sidebar" data-attr="active">
+      <div class="col-xs-12 col-sm-3 sidebar sidebar--inactive sidebar" data-attr="inactive">
         <ul class="sidebar__list list-group">
           <li class="sidebar__list-item sidebar__list-item--active list-group-item" data-attr="about-me">About Me</li>
           <li class="sidebar__list-item list-group-item" data-attr="my-experience">My Experience</li>
@@ -57,7 +57,7 @@
           <li class="sidebar__list-item list-group-item" data-attr="my-education">My Education</li>
         </ul>
       </div>
-      <section class="col-7 col-md-9 main-section">
+      <section class="col-xs-12 col-sm-9 main-section">
         <section class="main-section__content">
           <article class="main-section__content-article main-section__content-article--active main-section__content-about-me" data-attr="about-me">
             <picture class="main-section__content-banner-image main-section__content-about-me-banner-image">

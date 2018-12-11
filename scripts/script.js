@@ -6,6 +6,8 @@ var sideBarSelector = '.' + sideBarClassName;
 var dataAttribute = 'data-attr';
 var mainSectionClassName = 'main-section';
 var mainSectionSelector = '.' + mainSectionClassName;
+var mainSectionSideBarMenuIconWrapperClassName = 'header__menu-icon-wrapper';
+var mainSectionSideBarMenuIconWrapperSelector = '.' + mainSectionSideBarMenuIconWrapperClassName;
 var mainSectionSideBarMenuIconClassName = 'header__menu-icon';
 var mainSectionSideBarMenuIconSelector = '.' + mainSectionSideBarMenuIconClassName;
 var sideBarListItemClassName = 'sidebar__list-item';
@@ -28,7 +30,7 @@ $(document).ready(function () {
     }
   };
 
-  $(mainSectionSideBarMenuIconSelector).on('click', function (e) {
+  $(mainSectionSideBarMenuIconWrapperSelector).on('click', function (e) {
     var status = $(sideBarSelector).attr(dataAttribute)
     if (status === INACTIVE || status === ACTIVE) {
       /* start handling data for sidebar */
@@ -36,10 +38,7 @@ $(document).ready(function () {
       status === INACTIVE ? $(sideBarSelector).attr(dataAttribute, ACTIVE) : $(sideBarSelector).attr(dataAttribute, INACTIVE)
       /* end handling data for sidebar */
 
-      /* start handling data for main section */
-      toggleIdentifierClassName($(mainSectionSelector), mainSectionClassName, [WITH_NAV]);
-      /* end handling data for main section */
-
+      
       /* start handling data for main section sidebar menu icon */
       toggleIdentifierClassName($(mainSectionSideBarMenuIconSelector), mainSectionSideBarMenuIconClassName, [ACTIVE, INACTIVE]);
       /* end handling data for main section sidebar menu icon */
